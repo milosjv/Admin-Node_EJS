@@ -1,0 +1,228 @@
+<!-- =========================================================
+* Argon Dashboard PRO v1.1.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/argon-dashboard-pro
+* Copyright 2019 Creative Tim (https://www.creative-tim.com)
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+    <meta name="author" content="Creative Tim">
+    <title>Argon Dashboard PRO - Premium Bootstrap 4 Admin Template</title>
+    <% include ../template/main/head %>
+</head>
+
+<body>
+    <% include ../template/main/sidebar %>
+    <!-- Main content -->
+    <!-- Main content -->
+    <div class="main-content" id="panel">
+        <!-- Topnav -->
+        <% include ../template/main/header %>
+        <!-- Header -->
+        <!-- Header -->
+        <div class="header bg-primary pb-6">
+            <div class="container-fluid">
+                <div class="header-body">
+                    <div class="row align-items-center py-4">
+                        <div class="col-lg-6 col-7">
+                            <h6 class="h2 text-white d-inline-block mb-0">Form elements</h6>
+                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                    <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                                    <li class="breadcrumb-item"><a href="#">Forms</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Form elements</li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <div class="col-lg-6 col-5 text-right">
+                            <a href="#" class="btn btn-sm btn-neutral">New</a>
+                            <a href="#" class="btn btn-sm btn-neutral">Filters</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page content -->
+        <div class="container-fluid mt--6">
+            <div class="row">
+                <div class="col">
+                    <div class="card-wrapper">
+                        <!-- Custom form validation -->
+                        <div class="card">
+                            <!-- Card header -->
+                            <div class="card-header">
+                                <h3 class="mb-0">Custom styles</h3>
+                            </div>
+                            <!-- Card body -->
+                            <div class="card-body">
+
+                                <form class="needs-validation" novalidate method="POST" action="/users/create">
+                                    <div class="form-row">
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-control-label" for="validationCustom01">First
+                                                name</label>
+
+
+                                            <input type="text" class="form-control" id="validationCustom01"
+                                                placeholder="First name" name="firstname" value="" required>
+                                            <!-- <div class="valid-feedback">
+                                                Looks good!
+                                            </div> -->
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-control-label" for="validationCustom02">Last name</label>
+                                            <input type="text" class="form-control" id="validationCustom02"
+                                                placeholder="Last name" name="lastname" value="" required>
+                                            <!-- <div class="valid-feedback">
+                                                Looks good!
+                                            </div> -->
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-control-label"
+                                                for="validationCustomUsername">Username</label>
+                                            <input type="text" class="form-control" placeholder="Username"
+                                                name="username" aria-describedby="inputGroupPrepend" required>
+                                            <div class="invalid-feedback">
+                                                Please choose a username.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-3 mb-3">
+                                            <label class="form-control-label" for="validationCustom01">Email</label>
+                                            <input type="email" class="form-control" placeholder="Email" name="email"
+                                                value="" required>
+                                            <!-- <div class="valid-feedback">
+                                                Looks good!
+                                            </div> -->
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <label class="form-control-label" for="validationCustom02">Phone
+                                                Number</label>
+                                            <input type="number" class="form-control" placeholder="Phone Number"
+                                                name="phone" value="" required>
+                                            <!-- <div class="valid-feedback">
+                                                Looks good!
+                                            </div> -->
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <label class="form-control-label"
+                                                for="validationCustomUsername">PleskId</label>
+                                            <input type="text" class="form-control" placeholder="Username" name="plesk"
+                                                aria-describedby="inputGroupPrepend" required>
+                                            <div class="invalid-feedback">
+                                                Please choose a username.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <label class="form-control-label"
+                                                for="validationCustomUsername">Product</label>
+                                            <input type="text" class="form-control" placeholder="Username"
+                                                name="product" aria-describedby="inputGroupPrepend" required>
+                                            <div class="invalid-feedback">
+                                                Please choose a username.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-3 mb-3">
+                                            <label class="form-control-label" for="validationCustom03">Country</label>
+                                            <input type="text" class="form-control" id="validationCustom03"
+                                                name="country" placeholder="City" required>
+                                            <div class="invalid-feedback">
+                                                Please provide a valid city.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-control-label" for="validationCustom04">City</label>
+                                            <input type="text" class="form-control" id="validationCustom04"
+                                                placeholder="City" name="city" required>
+                                            <div class="invalid-feedback">
+                                                Please provide a valid state.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <label class="form-control-label" for="validationCustom05">Pincode</label>
+                                            <input type="number" class="form-control" id="validationCustom05"
+                                                placeholder="Pincode" name="pincode" required>
+                                            <div class="invalid-feedback">
+                                                Please provide a valid zip.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-checkbox mb-3">
+                                            <input class="custom-control-input" id="support" type="checkbox" value="0"
+                                                name="support">
+                                            <label class="custom-control-label" for="support" id="for_support">Agree to
+                                                terms and
+                                                conditions</label>
+                                            <div class="invalid-feedback">
+                                                You must agree before submitting.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary" type="submit">Save</button>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                function support_set() {
+                    support = $("#support").is(":checked")
+                    if (support) {
+                        support_val = 1
+                    } else {
+                        support_val = 0
+                    }
+                    $("#support").val(support_val);
+                }
+            </script>
+            <script>
+                // Example starter JavaScript for disabling form submissions if there are invalid fields
+                (function () {
+                    // support_set();
+
+                    $("#support").click(function () {
+                        support_set();
+                    })
+                    'use strict';
+                    window.addEventListener('load', function () {
+                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                        var forms = document.getElementsByClassName('needs-validation');
+                        // Loop over them and prevent submission
+                        var validation = Array.prototype.filter.call(forms, function (form) {
+                            form.addEventListener('submit', function (event) {
+                                if (form.checkValidity() === false) {
+                                    event.preventDefault();
+                                    event.stopPropagation();
+                                }
+                                form.classList.add('was-validated');
+                            }, false);
+                        });
+                    }, false);
+                })();
+            </script>
+            <!-- Footer -->
+            <% include ../template/main/footer %>
+        </div>
+    </div>
+    <% include ../template/main/common-script %>
+</body>
+
+</html>

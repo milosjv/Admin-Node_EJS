@@ -1,0 +1,331 @@
+<!-- =========================================================
+* Argon Dashboard PRO v1.1.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/argon-dashboard-pro
+* Copyright 2019 Creative Tim (https://www.creative-tim.com)
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+    <meta name="author" content="Creative Tim">
+    <title>Argon Dashboard PRO - Premium Bootstrap 4 Admin Template</title>
+    <% include ../template/main/head %>
+</head>
+
+<body>
+    <% include ../template/main/sidebar %>
+    <!-- Main content -->
+    <!-- Main content -->
+    <div class="main-content" id="panel">
+        <!-- Topnav -->
+        <% include ../template/main/header %>
+        <!-- Header -->
+        <!-- Header -->
+        <div class="header bg-primary pb-6">
+            <div class="container-fluid">
+                <div class="header-body">
+                    <div class="row align-items-center py-4">
+                        <div class="col-lg-6 col-7">
+                            <h6 class="h2 text-white d-inline-block mb-0">Form elements</h6>
+                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                    <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                                    <li class="breadcrumb-item"><a href="#">Forms</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Form elements</li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <div class="col-lg-6 col-5 text-right">
+                            <a href="#" class="btn btn-sm btn-neutral">New</a>
+                            <a href="#" class="btn btn-sm btn-neutral">Filters</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page content -->
+        <div class="container-fluid mt--6">
+            <div class="row">
+                <div class="col">
+                    <div class="card-wrapper">
+                        <!-- Custom form validation -->
+                        <div class="card">
+                            <!-- Card header -->
+                            <div class="card-header">
+                                <h3 class="mb-0">Custom styles</h3>
+                            </div>
+                            <!-- Card body -->
+                            <div class="card-body">
+                                <% if(service){ %>
+                                <form class="needs-validation" novalidate method="POST"
+                                    action="/service/update-service">
+                                    <input type="hidden" name="service_id" value="<%= service._id%>">
+                                    <%}else{%>
+                                    <form class="needs-validation" novalidate method="POST"
+                                        action="/service/create-service">
+                                        <%}%>
+                                 
+                                     <div class="form-row">
+                                         <div class="col-md-4 mb-3">
+                                             <label class="form-control-label" for="service_ip">Service IP</label>
+                                                <% if(service){%>
+                                        <input type="text" class="form-control" id="service_ip" name="service_ip"
+                                            placeholder="Service IP" required value="<%=service.service_ip%>">
+                                        <%}else{%>
+                                        <input type="text" class="form-control" id="service_ip" name="service_ip"
+                                            placeholder="Service IP" required>
+                                        <% } %>
+
+                                        <div class="invalid-feedback">
+                                            Please provide a valid Service IP.
+                                        </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-control-label" for="service_user">Service User</label>
+                                <%    if(service){ %>
+                                <input type="text" class="form-control" id="service_user" placeholder="Service User"
+                                    name="service_user" value="<%=service.service_user%>" required>
+                                <% }else{ %>
+                                <input type="text" class="form-control" id="service_user" placeholder="Service User"
+                                    name="service_user" required>
+                                <% } %>
+
+                                <div class="invalid-feedback">
+                                    Please provide a valid Service User.
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-control-label" for="service_password">Service
+                                    Password</label>
+                                <%    if(service){ %>
+                                <input type="password" class="form-control" id="service_password"
+                                    placeholder="service_password" value="<%=service.service_password%>"
+                                    name="service_password" required>
+                                <% }else{ %>
+                                <input type="password" class="form-control" id="service_password"
+                                    placeholder="service_password" name="service_password" required>
+                                <% } %>
+
+                                <div class="invalid-feedback">
+                                    Please provide a valid Service Password.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-4 mb-3">
+                                <label class="form-control-label" for="validationCustom01">Server
+                                    Name</label>
+                                <%    if(service){ %>
+                                <input type="text" class="form-control" id="validationCustom01" placeholder="name"
+                                    name="name" value="<%=service.name%>" required>
+                                <% }else{ %>
+                                <input type="text" class="form-control" id="validationCustom01" placeholder="name"
+                                    name="name" value="" required>
+                                <% } %>
+
+                                <div class="invalid-feedback">
+                                    Please provide a valid Service Name.
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 mb-3">
+                                <label class="form-control-label" for="exampleFormControlSelect1">Category</label>
+                                <%    if(service){ %>
+                                <input type="hidden" id="cate_id" value="<%=service.category._id %>">
+                                <input type="hidden" id="users_id" value="<%=service.assign_users %>">
+                                <%}%>
+                                <select class="form-control" id="category" name="category" required>
+                                    <% categories.forEach((category, i)=> { %>
+                                <option value="<%= category._id %>"><%= category.name %></option>
+                                <% }) %>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please choose a category.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row input-daterange datepicker align-items-center">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label class="form-control-label">Start date</label>
+                                    <%    if(service){ %>
+                                    <input class="form-control" placeholder="Start date" type="text"
+                                        value="<%= moment(service.start_date).format('MM/DD/YYYY'); %>"
+                                        name="start_date">
+                                    <% }else{ %>
+                                    <input class="form-control" placeholder="Start date" type="text"
+                                        value="<%= moment().format('MM/DD/YYYY'); %>" name="start_date">
+                                    <% } %>
+
+                                    <div class="invalid-feedback">
+                                        Please provide a valid Start date.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label class="form-control-label">End date</label>
+                                    <%  if(service){ %>
+                                    <input class="form-control" name="end_date" placeholder="End date" type="text"
+                                        value="<%= moment(service.end_date).format('MM/DD/YYYY'); %>">
+                                    <% }else{ %>
+                                    <input class="form-control" name="end_date" placeholder="End date" type="text"
+                                        value="<%= moment().add(1,'M').format('MM/DD/YYYY'); %>">
+                                    <% } %>
+
+                                    <div class="invalid-feedback">
+                                        Please provide a valid End date.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="col-md-4 mb-3">
+
+                                <label class="form-control-label" for="price">Price</label>
+                                <div class="form-group">
+                                    <div class="input-group input-group-merge">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fas fa-credit-card"></i></span>
+                                        </div>
+                                        <%    if(service){ %>
+                                        <input class="form-control" placeholder="Price" type="number" id="price"
+                                            value="<%=service.price%>" name="price">
+                                        <% }else{ %>
+                                        <input class="form-control" placeholder="Price" type="number" id="price"
+                                            name="price">
+                                        <% } %>
+
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><small
+                                                    class="font-weight-bold">USD</small></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <input type="number" class="form-control" id="price" placeholder="price"
+                                                                name="price" value="" required>
+                                                            <div class="input-group-append">
+                                                                <span class="input-group-text"><small
+                                                                        class="font-weight-bold">USD</small></span>
+                                                            </div> -->
+                                <div class="invalid-feedback">
+                                    Please provide a valid price.
+                                </div>
+                                <!-- <div class="valid-feedback">
+                                                                Looks good!
+                                                            </div> -->
+                            </div>
+
+                            <div class="col-md-4 mb-3">
+                                <label class="form-control-label" for="subscription_period">Subscription
+                                    Period</label>
+                                <select class="form-control" id="subscription_period" name="subscription_period"
+                                    required>
+                                    <option value="1">1 month</option>
+                                    <option value="3">3 month</option>
+                                    <option value="6">6 month</option>
+                                    <option value="12">12 month</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please choose a Subscription Period.
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-control-label" for="assign_users">Assign Users</label>
+                                <select class="form-control" id="assign_users" name="assign_users" data-toggle="select"
+                                    multiple data-placeholder="Assign Users" required>
+                                    <% users.forEach((user, i)=> { %>
+                                    <option value="<%= user._id %>"><%= user.username %></option>
+                                    <% }) %>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please choose Assign Users.
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <button class="btn btn-primary" type="submit">
+                            <%    if(service){ %>
+                            Update
+                            <% }else{ %>
+                            Create
+                            <% } %>
+                        </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <% if(service){ %>
+    <script>
+        function category_set() {
+            cate_id = $("#cate_id").val();
+            console.log('asdf', cate_id);
+            $('#category').val(cate_id);
+        }
+        function users_set() {
+            users_id = $("#users_id").val();
+            var ids = users_id.split(",");
+            $("#assign_users").val(ids);
+        }
+        function init_set() {
+            category_set();
+            users_set();
+        }
+    </script>
+    <script>
+        $(function () {
+            init_set();
+        })
+    </script>
+    <% } %>
+    <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function () {
+
+                $("#support").click(function () {
+                    support_set();
+                })
+                'use strict';
+                window.addEventListener('load', function () {
+                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                    var forms = document.getElementsByClassName('needs-validation');
+                    // Loop over them and prevent submission
+                    var validation = Array.prototype.filter.call(forms, function (form) {
+                        form.addEventListener('submit', function (event) {
+                            if (form.checkValidity() === false) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                        }, false);
+                    });
+                }, false);
+            })();
+    </script>
+    <!-- Footer -->
+    <% include ../template/main/footer %>
+    </div>
+    </div>
+    <% include ../template/main/common-script %>
+</body>
+
+</html>

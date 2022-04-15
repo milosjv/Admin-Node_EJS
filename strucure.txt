@@ -1,0 +1,60 @@
+you understand the point ?
+
+so in sidebar will be button for (tickets)
+
+when opened will show all tickets lists
+admin can edit / delete / reply each ticket
+admin can assign ticket as (opened / closed / answered)
++ integrate new ticket in notification icon on top header
+
+
+DB:
+admins:
+    unique_id
+    username
+    password
+    date
+
+users:
+    username
+    firstname
+    lastname
+    email
+    phone
+    plesk
+    product
+    country
+    city
+    pincode
+    support
+    date
+
+tickets:
+    unique_id
+    date
+    subject
+    user
+    content
+    attr
+    type   0:admin  1:user
+    status  open, closed, answered
+
+service
+    name
+    category
+    start_date
+    end_date
+    price
+    subscription_period
+    assign_users  //-> users table join
+    service_ip
+    service_user
+    service_password
+
+sevice_category
+    name
+    location
+    type
+
+
+

@@ -1,0 +1,123 @@
+<!-- =========================================================
+* Argon Dashboard PRO v1.1.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/argon-dashboard-pro
+* Copyright 2019 Creative Tim (https://www.creative-tim.com)
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+    <meta name="author" content="Creative Tim">
+    <title>Argon Dashboard PRO - Premium Bootstrap 4 Admin ../template</title>
+    <%-include('../template/main/head') %>
+</head>
+
+<body>
+    <%-include('../template/main/sidebar') %>
+    <!-- Main content -->
+    <div class="main-content" id="panel">
+        <!-- Topnav -->
+
+
+
+
+        <!-- Header -->
+        <div class="header bg-primary pb-6">
+            <div class="container-fluid">
+                <div class="header-body">
+                    <div class="row align-items-center py-4">
+                        <div class="col-lg-6 col-7">
+                            <h6 class="h2 text-white d-inline-block mb-0">Datatables</h6>
+                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                    <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                                    <li class="breadcrumb-item"><a href="#">Tables</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Datatables</li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <div class="col-lg-6 col-5 text-right">
+                            <a href="/service/add-category" class="btn btn-warning">Add Category</a>
+                            <a href="#" class="btn btn-sm btn-neutral">New</a>
+                            <a href="#" class="btn btn-sm btn-neutral">Filters</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page content -->
+        <div class="container-fluid mt--6">
+            <!-- Table -->
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <!-- Card header -->
+                        <div class="card-header">
+                            <h3 class="mb-0">Datatable</h3>
+                            <p class="text-sm mb-0">
+                                This is an exmaple of datatable using the well known datatables.net plugin. This is a
+                                minimal setup in order to get started fast.
+                            </p>
+                        </div>
+                        <div class="table-responsive py-4">
+                            <table class="table table-flush" id="datatable-basic">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Name</th>
+                                        <th>Location</th>
+                                        <th>Type</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Name</th>
+                                        <th>Location</th>
+                                        <th>Type</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <%categories.forEach((category, i)=> {%>
+                                    <tr>
+                                        <td><%=i+1 %></td>
+                                        <td><%=category.name%></td>
+                                        <td><%=category.location%></td>
+                                        <td><%=category.type%></td>
+                                        <td>
+                                            <a href="/service/edit-category/<%=category._id%>"
+                                                class="btn btn-primary">Edit</a>
+                                            <a href="/service/delete-category/<%=category._id%>"
+                                                class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <% })%>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Footer -->
+            <%-include('../template/main/footer') %>
+        </div>
+    </div>
+    <%-include('../template/main/common-script') %>
+</body>
+
+</html>

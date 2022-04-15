@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+    <meta name="author" content="Creative Tim">
+    <title>Argon Dashboard PRO - Premium Bootstrap 4 Admin ../template</title>
+    <%-include('../template/main/head') %>
+</head>
+
+<body>
+    <%-include('../template/main/sidebar') %>
+    <!-- Main content -->
+    <div class="main-content" id="panel">
+        <!-- Topnav -->
+
+        <%-include('../template/main/header') %>
+        <!-- Header -->
+        <!-- Header -->
+        <div class="header bg-primary pb-6">
+            <div class="container-fluid">
+                <div class="header-body">
+                    <div class="row align-items-center py-4">
+                        <div class="col-lg-6 col-7">
+                            <h6 class="h2 text-white d-inline-block mb-0">Datatables</h6>
+                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                    <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                                    <li class="breadcrumb-item"><a href="#">Tables</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Datatables</li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <div class="col-lg-6 col-5 text-right">
+                            <a href="/users/add" class="btn btn-warning">Add User</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page content -->
+        <div class="container-fluid mt--6">
+            <!-- Table -->
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <!-- Card header -->
+                        <div class="card-header">
+                            <h3 class="mb-0">Datatable</h3>
+                            <p class="text-sm mb-0">
+                                This is an exmaple of datatable using the well known datatables.net plugin. This is a
+                                minimal setup in order to get started fast.
+                            </p>
+                        </div>
+                        <div class="table-responsive py-4">
+                            <table class="table table-flush" id="datatable-basic">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>No</th>
+                                        <th>ticket_ID</th>
+                                        <th>date</th>
+                                        <th>subject</th>
+                                        <th>user</th>
+                                        <th>content</th>
+                                        <th>count</th>
+                                        <th>status</th>
+                                        <th>action</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>ticket_ID</th>
+                                        <th>date</th>
+                                        <th>subject</th>
+                                        <th>user</th>
+                                        <th>content</th>
+                                        <th>count</th>
+                                        <th>status</th>
+                                        <th>action</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <%  tickets.forEach((ticket, i)=> {%>
+                                    <tr>
+                                        <td><%=i+1%></td>
+                                        <td><%=ticket.unique_id%></td>
+                                        <td><%= moment(ticket.date).format('YYYY-MM-DD hh:mm:ss')%></td>
+                                        <td><%=ticket.subject%></td>
+                                        <td><%=ticket.user%></td>
+                                        <td><%=ticket.content%></td>
+                                        <td><%=ticket.count%></td>
+
+                                        <td><%=ticket.status%></td>
+                                        <td>
+                                            <a href="/ticket/reply/<%=ticket.unique_id%>"
+                                                class="btn btn-primary">Reply</a>
+                                            <!-- <a href="#" class="btn btn-warning">Edit</a> -->
+                                            <a href="/ticket/delete/<%=ticket.unique_id%>"
+                                                class="btn btn-danger">Delete</a>
+
+                                        </td>
+                                    </tr>
+                                    <%})%>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Footer -->
+            <%-include('../template/main/footer') %>
+        </div>
+    </div>
+    <%-include('../template/main/common-script') %>
+</body>
+
+</html>

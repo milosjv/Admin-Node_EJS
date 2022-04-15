@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+    <meta name="author" content="Creative Tim">
+    <title>Argon Dashboard PRO - Premium Bootstrap 4 Admin ../template</title>
+    <%-include('../template/main/head') %>
+    <link rel="stylesheet" href="../../assets/vendor/quill/dist/quill.core.css">
+</head>
+
+<body>
+    <%-include('../template/main/sidebar') %>
+    <!-- Main content -->
+    <div class="main-content" id="panel">
+        <!-- Topnav -->
+
+        <%-include('../template/main/header') %>
+        <!-- Header -->
+        <!-- Header -->
+        <div class="header bg-primary pb-6">
+            <div class="container-fluid">
+                <div class="header-body">
+                    <div class="row align-items-center py-4">
+                        <div class="col-lg-6 col-7">
+                            <h6 class="h2 text-white d-inline-block mb-0">Timeline</h6>
+                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                    <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Timeline</li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <div class="col-lg-6 col-5 text-right">
+                            <a href="#" class="btn btn-sm btn-neutral">New</a>
+                            <a href="#" class="btn btn-sm btn-neutral">Filters</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page content -->
+        <div class="container-fluid mt--6">
+            <div class="row">
+
+                <div class="col-lg-8">
+                    <div class="card bg-gradient-default shadow">
+                        <div class="card-header bg-transparent">
+                            <h3 class="mb-0 text-white">Ticket History</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="timeline timeline-one-side" data-timeline-content="axis"
+                                data-timeline-axis-style="dashed">
+                                <%  reply_tickets.forEach((ticket, i)=> {%>
+                                <div class="timeline-block">
+
+                                    <% if(ticket.type==1){ %>
+                                    <span class="timeline-step badge-success">
+                                        <i class="ni ni-bell-55"></i>
+
+                                        <% }else{ %>
+                                        <span class="timeline-step badge-danger">
+                                            <i class="ni ni-single-02"></i>
+
+                                            <% } %>
+                                        </span>
+                                        <div class="timeline-content">
+                                            <small
+                                                class="text-light font-weight-bold"><%= moment(ticket.date).format('YYYY-MM-DD hh:mm:ss')%></small>
+                                            <h5 class="text-white mt-3 mb-0"><%= ticket.subject %></h5>
+                                            <p class="text-light text-sm mt-1 mb-0"><%= ticket.content %></p>
+                                            <a href="/ticket/download/<%= ticket.attr %>">Attachment</a>
+                                            <div class="mt-3">
+                                                <% if(ticket.type==1){ %>
+                                                <span class="badge badge-pill badge-success"><%= ticket.user %></span>
+                                                <% }else{ %>
+                                                <span class="badge badge-pill badge-danger"><%= ticket.user %></span>
+                                                <% } %>
+
+
+                                            </div>
+                                        </div>
+                                </div>
+                                <%})%>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Text editor -->
+                    <div class="card">
+                        <!-- Card header -->
+                        <div class="card-header">
+                            <h3 class="mb-0">Write Reply</h3>
+                        </div>
+                        <!-- Card body -->
+                        <div class="card-body">
+                            <form method="POST" action="/ticket/post" enctype="multipart/form-data">
+                                <input type="hidden" name="unique_id" value="<%= unique_id%>">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="example4cols3Input">Subject</label>
+                                    <input type="text" class="form-control" id="example4cols3Input" name="subject"
+                                        placeholder="Subject" required>
+                                </div>
+                                <div class="form-group">
+
+                                    <label class="form-control-label" for="exampleFormControlSelect1">Status Set</label>
+                                    <select class="form-control" id="exampleFormControlSelect1" name="status" required>
+                                        <option value="opened">opened</option>
+                                        <option value="closed">closed</option>
+                                        <option value="answered">answered</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label" for="example4cols3Input">Content</label>
+
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                        name="content" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="customFileLang" lang="en"
+                                            name="filename">
+                                        <label class="custom-file-label" for="customFileLang">Select file</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <button class="btn btn-warning" type="submit">Post</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer -->
+            <footer class="footer pt-0">
+                <div class="row align-items-center justify-content-lg-between">
+                    <div class="col-lg-6">
+                        <div class="copyright text-center text-lg-left text-muted">
+                            &copy; 2019 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1"
+                                target="_blank">Creative Tim</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                            <li class="nav-item">
+                                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://www.creative-tim.com/presentation" class="nav-link"
+                                    target="_blank">About
+                                    Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://www.creative-tim.com/license" class="nav-link"
+                                    target="_blank">License</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="../../assets/vendor/quill/dist/quill.min.js"></script>
+    <%-include('../template/main/common-script') %>
+</body>
+
+</html>

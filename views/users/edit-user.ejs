@@ -1,0 +1,283 @@
+<!-- =========================================================
+* Argon Dashboard PRO v1.1.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/argon-dashboard-pro
+* Copyright 2019 Creative Tim (https://www.creative-tim.com)
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+    <meta name="author" content="Creative Tim">
+    <title>Argon Dashboard PRO - Premium Bootstrap 4 Admin Template</title>
+    <% include ../template/main/head %>
+</head>
+
+<body>
+    <% include ../template/main/sidebar %>
+    <!-- Main content -->
+    <!-- Main content -->
+    <div class="main-content" id="panel">
+        <!-- Topnav -->
+        <% include ../template/main/header %>
+        <!-- Header -->
+        <!-- Header -->
+        <div class="header bg-primary pb-6">
+            <div class="container-fluid">
+                <div class="header-body">
+                    <div class="row align-items-center py-4">
+                        <div class="col-lg-6 col-7">
+                            <h6 class="h2 text-white d-inline-block mb-0">Form elements</h6>
+                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                    <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                                    <li class="breadcrumb-item"><a href="#">Forms</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Form elements</li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <div class="col-lg-6 col-5 text-right">
+                            <a href="#" class="btn btn-sm btn-neutral">New</a>
+                            <a href="#" class="btn btn-sm btn-neutral">Filters</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page content -->
+        <div class="container-fluid mt--6">
+            <div class="row">
+                <div class="col">
+                    <div class="card-wrapper">
+                        <!-- Custom form validation -->
+                        <div class="card">
+                            <!-- Card header -->
+                            <div class="card-header">
+                                <h3 class="mb-0">Custom styles</h3>
+                            </div>
+                            <!-- Card body -->
+                            <div class="card-body">
+
+                                <form class="needs-validation" novalidate method="POST" action="/users/update">
+                                    <input type="hidden" name="user_id" value="<%=user._id%>">
+                                    <div class="form-row">
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-control-label" for="validationCustom01">First
+                                                name</label>
+
+
+                                            <input type="text" class="form-control" id="validationCustom01"
+                                                placeholder="First name" name="firstname" value="<%=user.firstname%>"
+                                                required>
+                                            <div class="valid-feedback">
+                                                Looks good!
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-control-label" for="validationCustom02">Last name</label>
+                                            <input type="text" class="form-control" id="validationCustom02"
+                                                placeholder="Last name" name="lastname" value="<%=user.lastname%>"
+                                                required>
+                                            <div class="valid-feedback">
+                                                Looks good!
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-control-label"
+                                                for="validationCustomUsername">Username</label>
+                                            <input type="text" class="form-control" placeholder="Username"
+                                                name="username" aria-describedby="inputGroupPrepend"
+                                                value="<%=user.username%>" required>
+                                            <div class="invalid-feedback">
+                                                Please choose a username.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-3 mb-3">
+                                            <label class="form-control-label" for="validationCustom01">Email</label>
+                                            <input type="text" class="form-control" placeholder="Email" name="email"
+                                                value="<%=user.email%>" required>
+                                            <div class="valid-feedback">
+                                                Looks good!
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <label class="form-control-label" for="validationCustom02">Phone
+                                                Number</label>
+                                            <input type="number" class="form-control" placeholder="Phone Number"
+                                                name="phone" value="<%=user.phone%>" required>
+                                            <div class="valid-feedback">
+                                                Looks good!
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <label class="form-control-label"
+                                                for="validationCustomUsername">PleskId</label>
+                                            <input type="text" class="form-control" placeholder="Username" name="plesk"
+                                                aria-describedby="inputGroupPrepend" value="<%=user.plesk%>" required>
+                                            <div class="invalid-feedback">
+                                                Please choose a username.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <label class="form-control-label"
+                                                for="validationCustomUsername">Product</label>
+                                            <input type="text" class="form-control" placeholder="Username"
+                                                name="product" aria-describedby="inputGroupPrepend"
+                                                value="<%=user.product%>" required>
+                                            <div class="invalid-feedback">
+                                                Please choose a username.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="col-md-3 mb-3">
+                                            <label class="form-control-label" for="validationCustom03">Country</label>
+                                            <input type="text" class="form-control" id="validationCustom03"
+                                                name="country" placeholder="City" value="<%=user.country%>" required>
+                                            <div class="invalid-feedback">
+                                                Please provide a valid city.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-control-label" for="validationCustom04">City</label>
+                                            <input type="text" class="form-control" id="validationCustom04"
+                                                placeholder="City" name="city" value="<%=user.city%>" required>
+                                            <div class="invalid-feedback">
+                                                Please provide a valid state.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <label class="form-control-label" for="validationCustom05">Pincode</label>
+                                            <input type="text" class="form-control" id="validationCustom05"
+                                                placeholder="Pincode" value="<%=user.pincode%>" name="pincode" required>
+                                            <div class="invalid-feedback">
+                                                Please provide a valid zip.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <!-- <label class="custom-toggle">
+                                            <input type="checkbox" name="support" value="<%=user.support%>" checked>
+                                        <span class="custom-toggle-slider rounded-circle" id="support"
+                                            data-label-off="No" data-label-on="Yes"></span>
+                                        </label> -->
+                                        <div class="custom-control custom-checkbox mb-3">
+                                            <% if(user.support == 1){ %>
+                                            <input class="custom-control-input" id="invalidCheck" type="checkbox"
+                                                value="<%=user.support%>" name="support" checked>
+                                            <%}else{%>
+                                            <input class="custom-control-input" id="invalidCheck" type="checkbox"
+                                                value="<%=user.support%>" name="support">
+                                            <%}%>
+
+
+                                <label class="custom-control-label" id="for_support" for="invalidCheck">Agree to terms
+                                    and
+                                    conditions</label>
+
+                                <div class="invalid-feedback">
+                                    You must agree before submitting.
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Update</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="footer pt-0">
+        <div class="row align-items-center justify-content-lg-between">
+            <div class="col-lg-6">
+                <div class="copyright text-center text-lg-left text-muted">
+                    &copy; 2019 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1"
+                        target="_blank">Creative Tim</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                    <li class="nav-item">
+                        <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About
+                            Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.creative-tim.com/license" class="nav-link" target="_blank">License</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script>
+            function support_set() {
+                support = $("#invalidCheck").val();
+                if (support) {
+                    $("#invalidCheck").prop("checked", true);
+                } else {
+                    $("#invalidCheck").prop("checked", false);
+                }
+                // $("#support").val(support);
+            }
+            function for_support() {
+                support = $("#invalidCheck").prop("checked")
+                if (support) {
+                    support_val = 0
+                } else {
+                    support_val = 1
+                }
+                console.log(support);
+                $("#invalidCheck").val(support_val);
+            }
+        </script>
+        <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function () {
+                // support_set();
+                $("#for_support").click(function () {
+                    for_support();
+                })
+                'use strict';
+                window.addEventListener('load', function () {
+                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                    var forms = document.getElementsByClassName('needs-validation');
+                    // Loop over them and prevent submission
+                    var validation = Array.prototype.filter.call(forms, function (form) {
+                        form.addEventListener('submit', function (event) {
+                            if (form.checkValidity() === false) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                        }, false);
+                    });
+                }, false);
+            })();
+        </script>
+    </footer>
+    </div>
+    </div>
+    <% include ../template/main/common-script %>
+</body>
+
+</html>
